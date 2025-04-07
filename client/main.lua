@@ -37,6 +37,7 @@ CreateThread(function()
                 local data = lib.callback.await('lastbiljob:rewardworker', false, v)
                 if data then
                     DeleteVehicle(trailerEntity)
+                    trailerEntity = nil
                     Config.Notify("success", "Du har modtaget " .. data .. " DKK", 5000)
                     UpdateProgress(0)
                 else
