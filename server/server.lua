@@ -1,5 +1,4 @@
-local vRP = exports.vrp.getObject() -- ændre denne til jeres egen måde at import vrp på.
-
+-- local vRP = exports.vrp.getObject() -- ændre denne til jeres egen måde at import vrp på.
 lib.callback.register('lastbiljob:rewardworker', function(source, v)
     if not v then return end
     local user = vRP.getUserId(source)

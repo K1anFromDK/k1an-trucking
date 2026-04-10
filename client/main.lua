@@ -79,11 +79,7 @@ function StartMission(v)
 
         local supply = Config.SupplyLocations[random]
         local varerBlip = CreateBlip(supply, "Varer")
-        table.insert(supplyLocations, {
-            id = i,
-            supply = supply,
-            blip = varerBlip
-        })
+        supplyLocations[i] = { supply = supply, blip = varerBlip }
         local point = lib.points.new({
             coords = supply,
             distance = 20
@@ -92,12 +88,7 @@ function StartMission(v)
             local marker = lib.marker.new({
                 type = 2,
                 coords = vec3(supply.x, supply.y, supply.z),
-                color = {
-                    r = 255,
-                    g = 144,
-                    b = 0,
-                    a = 200
-                }
+                color = Config.MarkerColor
             })
             lib.zones.box({
                 coords = vec3(supply.x, supply.y, supply.z),
@@ -107,7 +98,7 @@ function StartMission(v)
                 inside = function()
                     if progress == 1 then
                         marker:draw()
-                        if IsPedInAnyVehicle(PlayerPedId()) then
+                        if IsPedInAnyVehicle(cache.ped) then
                             lib.showTextUI('Tryk E for at samle varer op')
                             if IsControlJustPressed(0, 38) then
                                 PickupPackage(supply, varerBlip)
@@ -132,12 +123,7 @@ function StartDelivery()
         local deliveryMarker = lib.marker.new({
             type = 2,
             coords = vec3(delivery.x, delivery.y, delivery.z),
-            color = {
-                r = 255,
-                g = 144,
-                b = 0,
-                a = 200
-            }
+            color = Config.MarkerColor
         })
     lib.zones.box({
         coords = vec3(delivery.x, delivery.y, delivery.z),
@@ -147,7 +133,7 @@ function StartDelivery()
         inside = function()
             if progress == 2 then
                 deliveryMarker:draw()
-                if IsPedInAnyVehicle(PlayerPedId()) then
+                if IsPedInAnyVehicle(cache.ped) then
                     lib.showTextUI('Tryk E for at aflever varerene')
                     if IsControlJustPressed(0, 38) then
                         DeliverPackage(deliveryBlip)
@@ -172,7 +158,7 @@ function PickupPackage(supply, blip)
     RemoveBlip(blip)
     for k, v in pairs(supplyLocations) do
         if v.supply == supply then
-            table.remove(supplyLocations, k)
+            supplyLocations[k] = nil
         end
     end
 

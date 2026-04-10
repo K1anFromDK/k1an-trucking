@@ -5,11 +5,12 @@ game 'gta5'
 
 
 client_scripts { 
-    'client/main.lua' 
+    'client/*.lua' 
 }
 
 server_scripts { 
-    'server/server.lua' 
+    'server/*.lua', 
+    'bridge/server/*.lua'
 }
 
 shared_scripts {

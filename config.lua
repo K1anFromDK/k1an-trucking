@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Framework = 'vrp' -- vrp, qbox eller esx
+
 Config.Debug = false -- hvis true så bliver alle markersne omringet af en rød box. Ved ikke hvorfor at når du bruger debug mode så spiker ms'en lige med omkring 0.07 ms.
 
 Config.TrailerModel = 'trailers4' -- spawn koden til traileren
@@ -7,6 +9,13 @@ Config.TrailerModel = 'trailers4' -- spawn koden til traileren
 Config.MinMaxSupplies = { -- hvor mange supply locationer du kan få per gang. Hver dog lige ops på at hvis der er fx 2 supply locations og du har sat max til 3 så kommer den nok til at stacke dem!
     min = 1,
     max = 3
+}
+
+Config.MarkerColor = {
+    r = 255,
+    g = 144,
+    b = 0,
+    a = 200
 }
 
 Config.Rewards = { -- min og max på hvor meget du kan tjene per job.
