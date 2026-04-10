@@ -50,6 +50,8 @@ CreateThread(function()
     end
 end)
 
+---@param coords vector3 
+---@param name string
 function CreateBlip(coords, name)
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
     SetBlipSprite(blip, 1)
@@ -173,10 +175,12 @@ function PickupPackage(supply, blip)
     end
 end
 
+---@param newProgress number
 function UpdateProgress(newProgress)
     progress = newProgress
 end
 
+---@param toggle boolean
 function ToggleUI(toggle)
     SetNuiFocus(toggle, toggle)
     SendNUIMessage({
