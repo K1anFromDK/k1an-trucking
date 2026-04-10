@@ -1,5 +1,5 @@
 fx_version 'cerulean'
-author 'K1anFromDK'
+author 'K1an'
 lua54 'yes'
 game 'gta5'
 

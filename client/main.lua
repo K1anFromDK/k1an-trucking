@@ -13,6 +13,7 @@ CreateThread(function()
         exports.ox_target:addLocalEntity(npc, {{
             label = "Snak med " .. v.name,
             icon = "fas fa-user",
+            distance = 2.0,
             canInteract = function()
                 if progress == 0 then
                     return true
@@ -33,8 +34,9 @@ CreateThread(function()
                     return false
                 end
             end,
+            distance = 2.0,
             onSelect = function()
-                local data = lib.callback.await('lastbiljob:rewardworker', false, v)
+                local data = lib.callback.await('lastbiljob:rewardworker', false)
                 if data then
                     DeleteVehicle(trailerEntity)
                     trailerEntity = nil
