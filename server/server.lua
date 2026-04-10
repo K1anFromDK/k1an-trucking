@@ -1,5 +1,5 @@
 ---@param source number
----@return number | false
+---@return number | boolean
 lib.callback.register('lastbiljob:rewardworker', function(source, v)
     if not v or not source then return end
     local pedCoords, playerCoords = v.npcxyz, GetEntityCoords(GetPlayerPed(source))

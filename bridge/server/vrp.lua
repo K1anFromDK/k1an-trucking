@@ -1,7 +1,6 @@
 if Config.Framework == 'vrp' then
     local framework = {}
 
-
     framework.getBase = exports.vrp.getObject()
 
     ---@param source number
