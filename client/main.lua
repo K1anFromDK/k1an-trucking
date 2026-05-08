@@ -5,7 +5,7 @@ local trailerEntity = nil
 CreateThread(function()
     for k, v in pairs(Config.PickupLocations) do
         lib.requestModel("a_m_m_farmer_01")
-        local npc = CreatePed(1, GetHashKey("a_m_m_farmer_01"), v.npcxyz.x, v.npcxyz.y, v.npcxyz.z - 1, v.npcxyz.w, false, true)
+        local npc = CreatePed(1, GetHashKey("a_m_m_farmer_01"), v.npccoords.x, v.npccoords.y, v.npccoords.z - 1, v.npccoords.w, false, true)
         FreezeEntityPosition(npc, true)
         SetEntityInvincible(npc, true)
         SetBlockingOfNonTemporaryEvents(npc, true)
@@ -67,7 +67,7 @@ end
 function StartMission(v)
     local trailermodel = Config.TrailerModel
     lib.requestModel(trailermodel)
-    local trailer = CreateVehicle(GetHashKey(trailermodel), v.trailerxyz.x, v.trailerxyz.y, v.trailerxyz.z, v.trailerxyz.w, true, false)
+    local trailer = CreateVehicle(GetHashKey(trailermodel), v.trailercoords.x, v.trailercoords.y, v.trailercoords.z, v.trailercoords.w, true, false)
     trailerEntity = trailer
     SetEntityAsMissionEntity(trailer, true, true)
     SetVehicleOnGroundProperly(trailer)
@@ -102,7 +102,7 @@ function StartMission(v)
                 inside = function()
                     if progress == 1 then
                         marker:draw()
-                        if IsPedInAnyVehicle(cache.ped) then
+                        if cache.vehicle then
                             lib.showTextUI('Tryk E for at samle varer op')
                             if IsControlJustPressed(0, 38) then
                                 PickupPackage(supply, varerBlip)
@@ -137,7 +137,7 @@ function StartDelivery()
         inside = function()
             if progress == 2 then
                 deliveryMarker:draw()
-                if IsPedInAnyVehicle(cache.ped) then
+                if cache.vehicle then
                     lib.showTextUI('Tryk E for at aflever varerene')
                     if IsControlJustPressed(0, 38) then
                         DeliverPackage(deliveryBlip)

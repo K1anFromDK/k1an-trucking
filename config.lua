@@ -18,7 +18,7 @@ Config.MarkerColor = {
     a = 200
 }
 
-Config.Rewards = { -- min og max på hvor meget du kan tjene per job.
+Config.Rewards = { -- min og max på hvor meget du kan tjene pr job.
     min = 1000,
     max = 5000
 }
@@ -26,18 +26,18 @@ Config.Rewards = { -- min og max på hvor meget du kan tjene per job.
 Config.PickupLocations = { -- pick up lokationer hvor du henter trailere
     {
         name = 'Trucker John',
-        npcxyz = vec4(-643.3914, -1227.8879, 11.5476, 301.1554),
-        trailerxyz = vec4(-632.7674, -1215.6549, 12.4707, 314.0682)
+        npccoords = vec4(-643.3914, -1227.8879, 11.5476, 301.1554),
+        trailercoords = vec4(-632.7674, -1215.6549, 12.4707, 314.0682)
     },
     {
         name = 'Trucker Bob',
-        npcxyz = vec4(-696.1695, -1386.7291, 5.4953, 50.6014),
-        trailerxyz = vec4(-709.4367, -1404.9750, 5.0005, 49.7949)
+        npccoords = vec4(-696.1695, -1386.7291, 5.4953, 50.6014),
+        trailercoords = vec4(-709.4367, -1404.9750, 5.0005, 49.7949)
     },
     {
         name = 'Trucker Joe',
-        npcxyz = vec4(-1742.6917, 3312.9641, 41.2235, 121.2045),
-        trailerxyz = vec4(1732.7784, 3308.2417, 41.2235, 191.7054)
+        npccoords = vec4(-1742.6917, 3312.9641, 41.2235, 121.2045),
+        trailercoords = vec4(1732.7784, 3308.2417, 41.2235, 191.7054)
     }
 }
 

@@ -1,3 +1,5 @@
+local framework = require 'bridge.init'
+
 ---@param source number
 ---@return number | boolean
 lib.callback.register('lastbiljob:rewardworker', function(source, v)
@@ -10,8 +12,10 @@ lib.callback.register('lastbiljob:rewardworker', function(source, v)
     local user = framework.playerId(source)
     if user then
         local reward = math.random(Config.Rewards.min, Config.Rewards.max)
-        framework.addMoney(user, reward)
-        return reward
+        if framework.addMoney(user, reward) then
+            return reward
+        end
+        return false
     end
     return false
 end)
